@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>User Login</title>
+
+</h:head>
+<body>
+<h:outputStylesheet library="css" name="w3-2.css"  />
+	<h:form id="loginForm">
+		<p:panel header="Login Form" style="width: 500px;">
+			<h:panelGrid columns="2">
+				<p:outputLabel value="UserName" />
+				<p:inputText value="#{loginUserController.loginUser.userName}" />
+				<p:outputLabel value="Password" />
+				<p:password value="#{loginUserController.loginUser.password}" />
+				<p:commandButton action="#{loginUserController.login}" value="Login"	update="loginStatusMsg" />
+				<p:commandButton type="reset" value="Reset" />
+				<br/>
+				<p:outputLabel value="#{loginUserController.loginStatus}" id="loginStatusMsg" style="text-shadow:1px 1px 0 #444" styleClass="w3-green" />
+				
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</body>
+</html>
